@@ -3,7 +3,7 @@ const Order = require("./orders_model");
 
 const getOrders = async (req, res) => {
     try {
-        const orders = await Order.find({customerID: req.query.customerId});
+        const orders = await Order.find();
 
         if(orders.length === 0) {
             res.status(404)
