@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"
 
-import useOrdersReducer from "../../../shared/contexts/orders";
+import useOrdersReducer from "../../../shared/hooks/useOrdersReducer"
 
 const Cart = () => {
-    const {loading, error, orders} = useOrdersReducer();
+    const {loading, error, orders} = useOrdersReducer()
 
     if(loading) {
         return <h1>loading...</h1>
@@ -14,14 +14,14 @@ const Cart = () => {
     }
 
     if(orders) {
-        console.log(orders);
+        console.log(orders)
     }
 
     return (
         <div>
             <h1>cart page</h1>
         </div>
-    );
+    )
 }
 
-export default Cart;
+export default Cart

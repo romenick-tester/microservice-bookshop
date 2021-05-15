@@ -1,6 +1,6 @@
 import {useReducer, useEffect} from "react";
-import reducer from "./orders_reducer";
-import {getOrders, getOrderDetails} from "./orders_reducer_actions";
+import reducer from "../reducers/orders_reducer";
+import {getOrders, getOrderDetails} from "../reducers/orders_reducer_actions";
 
 const initialState = {
     loading: false,

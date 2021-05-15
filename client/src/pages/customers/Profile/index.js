@@ -1,26 +1,25 @@
-import React from "react";
-import useCustomersReducer from "../../../shared/contexts/customers";
+import React from "react"
+import styled from "styled-components"
+
+import {useAuthContext} from "../../../shared/contexts/authContext";
 
 const Profile = () => {
-    const {loading, error, customers} = useCustomersReducer();
-
-    if(loading) {
-        return <h1>loading...</h1>
-    }
-
-    if(error) {
-        return <h1>{error}</h1>
-    }
-
-    if(customers) {
-        console.log(customers);
-    }
-
+    const data = useAuthContext()
+    console.log(data);
     return (
-        <div>
-            <h1>customer profile page</h1>
-        </div>
-    );
+        <Wrapper>
+            <div>
+                <h1>customers profile page</h1>
+            </div>
+        </Wrapper>
+    )
 }
 
-export default Profile;
+const Wrapper = styled.div`
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+`
+
+export default Profile

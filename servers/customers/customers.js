@@ -9,9 +9,9 @@ const app = express();
 app.use(express.json());
 app.use(setHeaders);
 
-app.post("/api/customers/auth", controller.loginCustomer);
+app.post("/api/customers/login", controller.loginCustomer);
+app.post("/api/customers/signup", controller.signupCustomer);
 app.get("/api/customers", controller.getCustomers);
-app.post("/api/customers", controller.createCustomer);
 app.delete("/api/customers", controller.deleteCustomer);
 
 const PORT = process.env.PORT || 8000;

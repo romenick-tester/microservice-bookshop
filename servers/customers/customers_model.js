@@ -6,7 +6,7 @@ const customerSchema = new Schema({
         type: String,
         required: true
     },
-    date_of_birth: {
+    dob: {
         year: { type: Number, required: true },
         month: { type: String, required: true },
         day: { type: Number, required: true }

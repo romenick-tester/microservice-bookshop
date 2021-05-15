@@ -8,18 +8,18 @@ import {
 const url = "http://localhost:8000/api/customers";
 
 const getCustomers = async (dispatch) => {
-    dispatch({type: GET_CUSTOMERS_LIST_REQUEST});
-
     try {
+        dispatch({type: GET_CUSTOMERS_LIST_REQUEST})
+
         const res = await fetch(url);
-        const data = await res.json();
+        const result = await res.json();
 
-        if(!res.ok) throw new Error(data.message);
+        if(!res.ok) throw new Error(result.message);
 
-        dispatch({type: GET_CUSTOMERS_LIST_SUCCESS, payload: data});
+        dispatch({type: GET_CUSTOMERS_LIST_SUCCESS, payload: result})
     } catch (err) {
         console.error(err.message);
-        dispatch({type: GET_CUSTOMERS_LIST_ERROR, payload: err.message});
+        dispatch({type: GET_CUSTOMERS_LIST_ERROR, payload: err})
     }
 }
 

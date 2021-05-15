@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import {AppProvider} from "./shared/contexts"
+import React from "react"
+import ReactDOM from "react-dom"
+import {AuthProvider} from "./shared/contexts/authContext"
 
-import App from "./App";
+import App from "./App"
 
 ReactDOM.render(
-  <AppProvider>
+  <AuthProvider>
     <App />
-  </AppProvider>,
+  </AuthProvider>,
   document.getElementById("root")
-);
+)

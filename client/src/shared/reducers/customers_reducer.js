@@ -13,11 +13,11 @@ const customers = (state, action) => {
             return { ...state, loading: true };
 
         case GET_CUSTOMERS_LIST_SUCCESS:
-            return { ...state, loading: false, customers: payload };
+            return { ...state, loading: false, list: payload };
 
         case GET_CUSTOMER_DETAILS:
-            const tempCustomer = state.customers.filter((c) => c._id === payload);
-            return { ...state, loading: false, customer: tempCustomer };
+            const tempCustomer = state.list.find((c) => c.id === payload);
+            return { ...state, details: tempCustomer };
 
         case GET_CUSTOMERS_LIST_ERROR:
             return { ...state, loading: false, error: payload };
