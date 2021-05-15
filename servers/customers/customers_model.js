@@ -14,6 +14,10 @@ const customerSchema = new Schema({
     address: {
         type: String,
         required: true
+    },
+    credentials: {
+        email: { type: String, required: true },
+        password: { type: String, required: true }
     }
 })
 

@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(setHeaders);
 
-
+app.post("/api/customers/auth", controller.loginCustomer);
 app.get("/api/customers", controller.getCustomers);
 app.post("/api/customers", controller.createCustomer);
 app.delete("/api/customers", controller.deleteCustomer);

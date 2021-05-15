@@ -1,5 +1,7 @@
 const Customer = require("./customers_model");
 const data = require("./customers_default_data");
+//const { randomBytes } = require("crypto");
+require("dotenv").config();
 
 const getCustomers = async (req, res) => {
     try {
@@ -40,4 +42,21 @@ const deleteCustomer = async (req, res) => {
     }
 }
 
-module.exports = { getCustomers, createCustomer, deleteCustomer };
+const loginCustomer = async (req, res) => {
+    try {
+        const customer = await Customer.findOne({"credentials.email": req.body.email});
+
+        if(customer.credentials.password !== req.body.password) {
+            return res.status(401).json({message: "Invalid credentials!"})
+        }
+
+        const token = process.env.SECRET_PASS;
+
+        res.status(200).json(token);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ message: err.message })
+    }
+}
+
+module.exports = { getCustomers, createCustomer, deleteCustomer, loginCustomer };
